@@ -1,0 +1,30 @@
+.nav-item {
+  margin: 1rem;
+}
+
+.nav-item a {
+  border: 1px solid transparent;
+  color: #292929;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.nav-item a:hover,
+.nav-item a:active,
+.nav-item a.active {
+  background: #f8df00;
+  border-color: #292929;
+  color: #292929;
+}
+
+@media (min-width: 768px) {
+
+  .nav-item {
+    margin: 0 0.5rem;
+  }
+
+  .nav-item a {
+    color: white;
+    text-decoration: none;
+  }
+}
