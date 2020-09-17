@@ -1,21 +1,25 @@
-import React from "react";
-import NavItem from "./NavItem"
+import React, {useContext} from "react";
+import NavItem from "./NavItem";
 
 import classes from "./NavLinks.module.css";
+import {AuthContext} from "../../context/auth-context";
+import {conditionalRender} from "../../../Utility/RenderHelpers";
 
-const navLinks = (props) => {
-    return(
-        <ul className={classes["nav-links"]}>
+const NavLinks = (props) => {
+  const auth = useContext(AuthContext);
 
-            <NavItem exact to="/">All Users</NavItem>
+  return (
+    <ul className={classes["nav-links"]}>
+      <NavItem exact to="/">
+        All Users
+      </NavItem>
 
-            <NavItem to="/u1/places">My Places</NavItem>
+      {conditionalRender(<NavItem to="/u1/places">My Places</NavItem>, auth.isLoggedIn)}
+      {conditionalRender(<NavItem to="/places/new">New Places</NavItem>, auth.isLoggedIn)}
+      {conditionalRender(<NavItem to="/login">Login</NavItem>, !auth.isLoggedIn)}
+      {conditionalRender(<li><button onClick={auth.logout}>Logout</button></li>, auth.isLoggedIn)}
+    </ul>
+  );
+};
 
-            <NavItem to="/places/new">New Places</NavItem>
-
-            <NavItem to="/login">Login</NavItem>
-        </ul>
-    );
-}
-
-export default navLinks;
+export default NavLinks;

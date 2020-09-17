@@ -1,0 +1,21 @@
+.modal-anim-enter {
+  transform: translateY(-10rem);
+  opacity: 0;
+}
+
+.modal-anim-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.modal-anim-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-anim-exit-active {
+  transform: translateY(-10rem);
+  opacity: 0;
+  transition: all 200ms;
+}

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import classes from "./Avatar.module.css";
 
-const Avatar = props => {
+const Avatar = (props) => {
   return (
     <div className={`${classes.avatar} ${props.className}`} style={props.style}>
       <img
